@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story 💖</title>
+
+<style>
+body {
+    margin:0;
+    padding:0;
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(135deg,#ff4e8a,#ff9eb5);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.section {
+    display:none;
+    padding:40px;
+    margin-top:10%;
+    animation: fade 1.5s ease-in-out;
+}
+
+.active {
+    display:block;
+}
+
+h1 {
+    font-size:2.5rem;
+}
+
+p {
+    font-size:1.2rem;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
+}
+
+button {
+    padding:12px 25px;
+    margin-top:30px;
+    border:none;
+    border-radius:30px;
+    font-size:1rem;
+    cursor:pointer;
+    background:white;
+    color:#ff4e8a;
+    position:relative;
+}
+
+button:hover {
+    background:transparent;
+    border:2px solid white;
+    color:white;
+}
+
+@keyframes fade {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 18px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-100vh); opacity:0; }
+}
+
+/* NO button running */
+#noBtn {
+    position:absolute;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Episode 1 -->
+<div class="section active" id="s1">
+<h1>🎬 Episode 1 – The Beginning</h1>
+<p>Oru random day… random conversation…  
+aana adhu random illa… destiny 💫  
+Andha first smile… first chat…  
+appove en life la oru change start aaiduchu ❤️</p>
+<button onclick="next(1)">Next ➡</button>
+</div>
+
+<!-- Episode 2 -->
+<div class="section" id="s2">
+<h1>📱 Episode 2 – Long Distance</h1>
+<p>Daily paaka mudiyala…  
+epayavathu thaan pesa mudiyum…  
+aana call cut aana apram thaan  
+nee romba mukkiyam nu purinjuchu 💖</p>
+<button onclick="next(2)">Next ➡</button>
+</div>
+
+<!-- Episode 3 -->
+<div class="section" id="s3">
+<h1>💔 Episode 3 – Missing You</h1>
+<p>Sometimes phone screen ah paathu silent ah irupen…  
+because unna romba miss pannuren 🥺  
+Distance irundhaalum…  
+namma connection strong dhaan 💞</p>
+<button onclick="next(3)">Next ➡</button>
+</div>
+
+<!-- Episode 4 -->
+<div class="section" id="s4">
+<h1>✈️ Episode 4 – The Reunion</h1>
+<p>Ipo nee oorukku vara…  
+adhu enakku festival maari feel 😌✨  
+First meet moment ah naan already imagine panren…  
+andha smile… andha eye contact… ❤️</p>
+<button onclick="next(4)">Final ➡</button>
+</div>
+
+<!-- Final Screen -->
+<div class="section" id="s5">
+<h1>💍 Final Chapter – Forever Begins</h1>
+<p>Namma rendu perum innum neraya cities suthanum 🗺️  
+Beach sunset paakanum 🌅  
+Train window la mazha paakanum 🌧️  
+Life long travel panna aasai…  
+aana pakkathula nee irundha pothum 💖</p>
+
+<h2>Will you stay with me forever? 💞</h2>
+
+<button onclick="yesClicked()">YES 💖</button>
+<button id="noBtn" onmouseover="moveNo()">NO 😜</button>
+
+</div>
+
+<script>
+
+function next(num){
+    document.getElementById("s"+num).classList.remove("active");
+    document.getElementById("s"+(num+1)).classList.add("active");
+}
+
+function yesClicked(){
+    document.body.innerHTML=`
+    <div style="margin-top:20%; text-align:center;">
+        <h2>From today… every journey En kuda travel panna ne ready ahh 💞</h2>
+        .
+        .
+        .
+        .
+        <h1>I love you forever Thangamea....... ❤️</h1>
+    </div>
+    `;
+}
+
+function moveNo(){
+    const btn=document.getElementById("noBtn");
+    const x=Math.random()*(window.innerWidth-100);
+    const y=Math.random()*(window.innerHeight-50);
+    btn.style.left=x+"px";
+    btn.style.top=y+"px";
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=Math.random()*20+15+"px";
+    heart.style.animationDuration=Math.random()*3+3+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
